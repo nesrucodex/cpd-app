@@ -32,7 +32,7 @@ export function AddRegistration({ events }: Props) {
           return
         }
         form.reset()
-        setFeedback({ kind: "success", message: "You’re registered. Your seat is confirmed!" })
+        setFeedback({ kind: "success", message: "Registered successfully." })
         router.refresh()
       } catch {
         setFeedback({ kind: "error", message: "Unable to register. Please try again." })
@@ -63,7 +63,7 @@ export function AddRegistration({ events }: Props) {
           <label htmlFor="email">Email address</label>
           <input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
         </div>
-        <button type="submit">{isPending ? "Registering…" : "Register for event"}<span aria-hidden="true">↗</span></button>
+        <button type="submit">{isPending ? "Registering…" : "Register"}</button>
       </fieldset>
       {!hasSeats && <p className="form-note">Registration will open when seats are available.</p>}
       {feedback && <p className={`form-feedback ${feedback.kind}`} role={feedback.kind === "error" ? "alert" : "status"}>{feedback.message}</p>}
