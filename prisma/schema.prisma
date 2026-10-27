@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model User {
@@ -17,6 +17,8 @@ model User {
   email     String   @unique
   name      String
   createdAt DateTime @default(now())
+  // relations
+  events    Event[]
 }
 
 model Event {
@@ -25,4 +27,7 @@ model Event {
   date     DateTime
   capacity Int
   cpdHours Int
+
+  // relations
+  members User[]
 }
